@@ -29,6 +29,8 @@ func init() {
 func main() {
 	e := echo.New()
 	e.Use(middleware.Logger())
+
+	// This line is just for setting a fake tenant key.
 	e.Use(func(next echo.HandlerFunc) echo.HandlerFunc {
 		return func(c echo.Context) error {
 			c.Set(TenantKey, "E638D8DC-4C92-4B43-A9FD-FB32EF6369F6")
