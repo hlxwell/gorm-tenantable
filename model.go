@@ -6,6 +6,7 @@ import (
 
 type Tenant struct {
 	gorm.Model
-	Name          string
-	UUID          string
+	Name      string
+	UUID      string
+	SubDomain string
 }

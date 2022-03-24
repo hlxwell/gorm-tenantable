@@ -1,11 +1,18 @@
 package tenantable
 
 import (
-  "gorm.io/gorm"
+	"gorm.io/gorm"
+)
+
+const (
+	TenantByDomain = iota
+	TenantByKey
 )
 
 type Config struct {
-  TenantKey        string
-  DB               *gorm.DB
-  AutoMigrate      bool
+	TenantKeyMethod  uint
+	TenantDomainBase string
+	TenantKey        string
+	DB               *gorm.DB
+	AutoMigrate      bool
 }

@@ -39,9 +39,11 @@ func main() {
 	})
 
 	e.Use(tenantable.GormInjector(&tenantable.Config{
-		TenantKey:   TenantKey,
-		DB:          Conn,
-		AutoMigrate: true,
+		TenantKeyMethod:  tenantable.TenantByDomain,
+		TenantDomainBase: ".tenant.lvh.me",
+		TenantKey:        TenantKey,
+		DB:               Conn,
+		AutoMigrate:      true,
 	}))
 
 	e.GET("/content", func(c echo.Context) error {
